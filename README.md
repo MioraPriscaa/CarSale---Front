@@ -65,7 +65,6 @@ Transaction:
 	-IdPersonne (Mivarotra)
 	-IdPersonne (Mividy)
 	-prix
-	
 	-date
 
 Caisse: 
