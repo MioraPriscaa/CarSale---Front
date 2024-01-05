@@ -1,4 +1,4 @@
-# CarSale---Front
+# -- CarSale--front
 Vente de voiture d'occasion
 
 Admin: 
@@ -35,10 +35,10 @@ Model:
 	-designation
 
 Voiture:
-	-IdVoiture
-	-IdPersonne(Proprietaire)
-	-IdCatégorie
-	-IdModel
+	-idVoiture
+	-idPersonne(Proprietaire)
+	-idCatégorie
+	-idModel
 	-couleur
 	-plaque d'immatriculation
 	-Etat: /10
@@ -46,13 +46,13 @@ Voiture:
 	
 
 DetailVoiture:
-	-IdVoiture
+	-idVoiture
 	-date: 
 	-Desciption : (Text)
 	
 Statut Voiture:
 	-idSatut
-	-IdVoiture
+	-idVoiture
 	-Date
 	-Statut : (10-19 Vendu ,  20 -29 En atente de validation, ) 
 			10 vendu fa mbola tsy livré
@@ -62,13 +62,13 @@ Statut Voiture:
 Transaction:
 	-idTransaction
 	-idVoiture
-	-IdPersonne (Mivarotra)
-	-IdPersonne (Mividy)
+	-idPersonne (Mivarotra)
+	-idPersonne (Mividy)
 	-prix
 	-date
 
 Caisse: 
-	-IdTransaction
+	-idTransaction
 	-dateTransaction
 	-montant
 	-Type (Debiteur, 
