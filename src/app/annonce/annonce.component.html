@@ -19,8 +19,13 @@
     </mat-autocomplete>
   </mat-form-field>
 </form>
-<span style="font-size: 20px" class="p-2">
-  <b>Les plus récents:</b>
+<span class="p-2 d-flex align-items-center gap-2 justify-content-between">
+  <b style="font-size: 20px">Les plus récents:</b>
+  <mat-chip-listbox aria-label="Fish selection">
+    <mat-chip-option selected>Nom</mat-chip-option>
+    <mat-chip-option color="warn">Prix</mat-chip-option>
+    <mat-chip-option color="accent">Date</mat-chip-option>
+  </mat-chip-listbox>
 </span>
 <div class="container py-2">
   <div class="row">

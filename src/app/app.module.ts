@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
 @NgModule({
   declarations: [AppComponent, MainComponent, AnnonceComponent, OneComponent],
   imports: [
@@ -28,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatButtonModule,
     MatDividerModule,
     MatIconModule,
+    MatChipsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
