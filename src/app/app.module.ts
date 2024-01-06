@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [AppComponent, MainComponent, AnnonceComponent, OneComponent],
   imports: [
@@ -30,6 +31,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatDividerModule,
     MatIconModule,
     MatChipsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

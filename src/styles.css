@@ -48,6 +48,10 @@ body {
   right: 0;
 }
 
+.filtreinput * {
+  background-color: transparent !important;
+}
+
 html,
 body {
   height: 100%;
