@@ -1,0 +1,32 @@
+<div
+  class="head position-absolute d-flex flex-row col-12 justify-content-between pr-2"
+  style="top: 0; z-index: 10"
+>
+  <span
+    style="
+      background-color: rgba(0, 0, 0, 0.603);
+      color: white;
+      border-radius: 6px 0px 0px 0px;
+    "
+    class="py-1 px-3"
+  >
+    12.000$
+  </span>
+  <span style="font-size: 20px; color: var(--secondary)" class="mx-2">
+    <i class="fa-{{ iconEtat }} fa-heart" (click)="changeState()"></i>
+  </span>
+</div>
+<img src="../../assets/img/CAR_SALE.png" alt="image" height="100%" />
+<div
+  class="detail position-absolute p-2 px-3 col-12 d-flex flex-row align-items-center justify-content-between"
+  style="bottom: 0; height: 15%; border-radius: 2px 2px 0px 0px"
+>
+  <div class="blurback"></div>
+  <span style="z-index: 2">Starex</span>
+  <button
+    mat-raised-button
+    style="background-color: var(--primary); color: white; z-index: 2"
+  >
+    Voir
+  </button>
+</div>

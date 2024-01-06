@@ -1,1 +1,57 @@
 /* You can add global styles to this file, and also import other style files */
+@import "node_modules\\bootstrap\\dist\\css\\bootstrap.css";
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+:root {
+  --primary: rgb(0, 123, 255);
+  --primary-transparent: rgba(0, 123, 255, 0.169);
+  --secondary: rgb(255, 240, 74);
+  --secondary-transparent: rgba(255, 240, 74, 0.242);
+  --bg: white;
+  --bg-card: rgba(244, 244, 244, 0.671);
+  --bg-card-hover: rgba(234, 234, 234, 0.671);
+}
+
+* {
+  transition: 0.2s;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+}
+
+.one {
+  background-color: var(--bg-card);
+  border: none;
+  border-bottom: 0px solid var(--primary);
+  border-radius: 6px 6px 0px 0px;
+  transition: 0.1s;
+}
+
+.one:hover {
+  border-bottom: 2px solid var(--primary);
+  background-color: var(--bg-card-hover);
+}
+.detail {
+  overflow: hidden;
+}
+
+.blurback {
+  z-index: 1;
+  background: rgb(225, 225, 225);
+  position: absolute;
+  filter: blur(1.5rem);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
