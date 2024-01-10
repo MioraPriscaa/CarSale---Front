@@ -16,8 +16,9 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
-  declarations: [AppComponent, MainComponent, AnnonceComponent, OneComponent],
+  declarations: [AppComponent, MainComponent, AnnonceComponent, OneComponent, HeaderComponent],
   imports: [
     BrowserModule,
     FormsModule,

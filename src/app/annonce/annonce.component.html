@@ -1,39 +1,34 @@
-<form class="p-2">
-  <mat-form-field class="col-12">
-    <mat-label>Recherche</mat-label>
-    <input
-      type="text"
-      placeholder=""
-      aria-label="Recherche"
-      matInput
-      [formControl]="myControl"
-      [matAutocomplete]="auto"
-    />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let option of filteredOptions | async; trackBy: trackByFn"
-        [value]="option"
+<div style="height: 100vh"></div>
+<div class="card annonce p-2">
+  <span style="font-size: 30px" class="col-12 d-flex justify-content-evenly">
+    <span
+      style="
+        background-color: var(--primary);
+        border-radius: 12px;
+        width: 40px;
+        height: 10px;
+      "
+    ></span>
+  </span>
+  <span
+    class="px-5 py-4 d-flex align-items-center gap-2 justify-content-between"
+  >
+    <b style="font-size: 20px">Les plus récents:</b>
+    <mat-chip-listbox aria-label="Fish selection">
+      <mat-chip-option selected>Nom</mat-chip-option>
+      <mat-chip-option color="warn">Prix</mat-chip-option>
+      <mat-chip-option color="accent">Date</mat-chip-option>
+      <mat-chip-option color="accent">Les plus aimés</mat-chip-option>
+    </mat-chip-listbox>
+  </span>
+  <div class="container py-2">
+    <div class="row">
+      <div
+        class="col-lg-3 col-12 p-2 position-relative"
+        *ngFor="let item of [0, 1, 2, 3, 4]"
       >
-        {{ option }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-</form>
-<span class="p-2 d-flex align-items-center gap-2 justify-content-between">
-  <b style="font-size: 20px">Les plus récents:</b>
-  <mat-chip-listbox aria-label="Fish selection">
-    <mat-chip-option selected>Nom</mat-chip-option>
-    <mat-chip-option color="warn">Prix</mat-chip-option>
-    <mat-chip-option color="accent">Date</mat-chip-option>
-  </mat-chip-listbox>
-</span>
-<div class="container py-2">
-  <div class="row">
-    <div
-      class="col-4 p-2 position-relative"
-      *ngFor="let item of [0, 1, 2, 3, 4]"
-    >
-      <app-one class="card one" style="height: 20rem"></app-one>
+        <app-one></app-one>
+      </div>
     </div>
   </div>
 </div>

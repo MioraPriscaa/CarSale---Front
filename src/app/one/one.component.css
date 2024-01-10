@@ -1,0 +1,31 @@
+.one {
+  z-index: 10;
+}
+
+.voirDetail {
+  position: absolute;
+  bottom: 2%;
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+}
+
+.voirDetail:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.VoirInactive {
+  opacity: 0;
+  transform: translateY(100%);
+  z-index: 1;
+}

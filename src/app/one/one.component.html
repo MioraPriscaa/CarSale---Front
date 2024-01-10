@@ -1,41 +1,71 @@
 <div
-  class="head position-absolute d-flex flex-row col-12 justify-content-between pr-2"
-  style="top: 0; z-index: 10"
+  [class]="class"
+  (mouseenter)="makeShowDetail()"
+  (mouseleave)="makeShowDetail()"
 >
-  <span
-    style="
-      background-color: rgba(0, 0, 0, 0.603);
-      color: white;
-      border-radius: 6px 0px 0px 0px;
-    "
-    class="py-1 px-3"
+  <div
+    class="head position-absolute d-flex flex-row col-12 justify-content-between pr-2"
+    style="top: 0; z-index: 10"
   >
-    12.000$
-  </span>
-  <span style="font-size: 20px; color: var(--secondary)" class="mx-2">
-    <i class="fa-{{ iconEtat }} fa-heart" (click)="changeState()"></i>
-  </span>
+    <span
+      style="
+        background-color: rgba(0, 0, 0, 0.603);
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+      "
+      class="py-1 px-3"
+    >
+      <i class="fa fa-heart"></i>
+      40
+    </span>
+    <span style="font-size: 20px; color: var(--secondary)" class="mx-2">
+      <i class="fa-{{ iconEtat }} fa-heart" (click)="changeState()"></i>
+    </span>
+  </div>
+  <div
+    class="image d-flex align-items-center justify-content-center position-relative"
+    style="height: 100%; overflow: hidden"
+  >
+    <img
+      src="../../assets/img/VOITURE.jpg"
+      alt="image"
+      style="height: 100%; object-fit: cover"
+    />
+    <button [class]="showDetail" mat-flat-button (click)="makeShow()">
+      Voir detail
+    </button>
+  </div>
+  <div
+    class="detail position-relative p-2 px-3 col-12 d-flex flex-row align-items-start justify-content-between"
+    style="bottom: 0; height: 25%"
+  >
+    <span style="z-index: 2" class="d-flex flex-column gap-2">
+      <span
+        style="
+          font-family: Arial, Helvetica, sans-serif;
+          background-color: var(--secondary);
+          border-radius: 12px;
+        "
+        class="px-4"
+        >$1,000</span
+      >
+      <span
+        >Starex <br />
+        7 places</span
+      >
+    </span>
+    <i class="fa-solid fa-truck-pickup"></i>
+  </div>
 </div>
 <div
-  class="image d-flex align-items-center justify-content-center"
-  style="height: 100%; overflow: hidden; border-radius: 6px 6px 0px 0px"
->
-  <img
-    src="../../assets/img/VOITURE.jpg"
-    alt="image"
-    style="height: 100%; object-fit: cover"
-  />
-</div>
-<div
-  class="detail position-absolute p-2 px-3 col-12 d-flex flex-row align-items-center justify-content-between"
-  style="bottom: 0; height: 15%; border-radius: 2px 2px 0px 0px"
->
-  <div class="blurback"></div>
-  <span style="z-index: 2">Starex</span>
-  <button
-    mat-raised-button
-    style="background-color: var(--primary); color: white; z-index: 2"
-  >
-    Voir
-  </button>
-</div>
+  class="position-fixed"
+  *ngIf="isShow"
+  style="
+    background-color: rgba(0, 0, 0, 0.584);
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+    z-index: 10;
+  "
+></div>
