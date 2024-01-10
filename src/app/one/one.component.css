@@ -3,6 +3,7 @@
 }
 
 .voirDetail {
+  z-index: 10;
   position: absolute;
   bottom: 2%;
   background-image: linear-gradient(
