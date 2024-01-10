@@ -1,6 +1,5 @@
-<div style="height: 100vh"></div>
 <div class="card annonce p-2">
-  <span style="font-size: 30px" class="col-12 d-flex justify-content-evenly">
+  <span class="col-12 d-flex justify-content-evenly">
     <span
       style="
         background-color: var(--primary);
@@ -10,24 +9,70 @@
       "
     ></span>
   </span>
-  <span
-    class="px-5 py-4 d-flex align-items-center gap-2 justify-content-between"
-  >
-    <b style="font-size: 20px">Les plus récents:</b>
-    <mat-chip-listbox aria-label="Fish selection">
-      <mat-chip-option selected>Nom</mat-chip-option>
-      <mat-chip-option color="warn">Prix</mat-chip-option>
-      <mat-chip-option color="accent">Date</mat-chip-option>
-      <mat-chip-option>Les plus aimés</mat-chip-option>
-    </mat-chip-listbox>
-  </span>
-  <div class="container py-2">
-    <div class="row">
-      <div
-        class="col-lg-3 col-12 p-2 position-relative"
-        *ngFor="let item of [0, 1, 2, 3, 4]"
+  <div class="p-2 col-12 container">
+    <input type="search" name="" id="" class="form-control" />
+  </div>
+  <div class="container p-2">
+    <div class="row d-flex flex-row">
+      <div class="col-4">
+        <mat-form-field class="col-12">
+          <mat-label>Marque</mat-label>
+          <mat-select [formControl]="toppings" multiple>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+              topping
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="col-12">
+          <mat-label>Modèle</mat-label>
+          <mat-select [formControl]="toppings" multiple>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+              topping
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-4">
+        <mat-form-field class="col-12">
+          <mat-label>Categorie</mat-label>
+          <mat-select [formControl]="toppings" multiple>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{
+              topping
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="d-flex justify-content-evenly col-12">
+      <button
+        mat-raised-button
+        style="background-color: var(--primary); color: white"
+        class="my-2"
       >
-        <app-one></app-one>
+        Trier
+      </button>
+    </div>
+    <span
+      class="px-2 py-4 d-flex align-items-center gap-2 justify-content-between"
+    >
+      <b style="font-size: 20px">Les plus récents:</b>
+      <mat-chip-listbox aria-label="Fish selection">
+        <mat-chip-option selected>Nom</mat-chip-option>
+        <mat-chip-option color="warn">Prix</mat-chip-option>
+        <mat-chip-option color="accent">Date</mat-chip-option>
+        <mat-chip-option>Les plus aimés</mat-chip-option>
+      </mat-chip-listbox>
+    </span>
+    <div class="container py-2">
+      <div class="row">
+        <div
+          class="col-lg-3 col-12 p-2 position-relative"
+          *ngFor="let item of [0, 1, 2, 3, 4]"
+        >
+          <app-one></app-one>
+        </div>
       </div>
     </div>
   </div>

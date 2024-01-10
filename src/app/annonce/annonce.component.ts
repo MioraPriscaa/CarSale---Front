@@ -11,6 +11,15 @@ export class AnnonceComponent {
   myControl = new FormControl('');
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]> | undefined;
+  toppings = new FormControl('');
+  toppingList: string[] = [
+    'Extra cheese',
+    'Mushroom',
+    'Onion',
+    'Pepperoni',
+    'Sausage',
+    'Tomato',
+  ];
 
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
