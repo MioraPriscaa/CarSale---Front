@@ -1,16 +1,9 @@
 <div class="card annonce p-2">
-  <span class="col-12 d-flex justify-content-evenly">
-    <span
-      style="
-        background-color: var(--primary);
-        border-radius: 12px;
-        width: 40px;
-        height: 10px;
-      "
-    ></span>
-  </span>
   <div class="p-2 col-12 container">
-    <input type="search" name="" id="" class="form-control" />
+    <mat-form-field class="example-full-width col-12">
+      <mat-label>Recherche</mat-label>
+      <input matInput />
+    </mat-form-field>
   </div>
   <div class="container p-2">
     <div class="row d-flex flex-row">
@@ -51,19 +44,22 @@
         style="background-color: var(--primary); color: white"
         class="my-2"
       >
-        Trier
+        Filtrer
       </button>
     </div>
     <span
       class="px-2 py-4 d-flex align-items-center gap-2 justify-content-between"
     >
       <b style="font-size: 20px">Les plus récents:</b>
-      <mat-chip-listbox aria-label="Fish selection">
-        <mat-chip-option selected>Nom</mat-chip-option>
-        <mat-chip-option color="warn">Prix</mat-chip-option>
-        <mat-chip-option color="accent">Date</mat-chip-option>
-        <mat-chip-option>Les plus aimés</mat-chip-option>
-      </mat-chip-listbox>
+      <span class="d-flex align-items-center gap-2">
+        <span>Trier par:</span>
+        <mat-chip-listbox aria-label="Fish selection">
+          <mat-chip-option selected>Nom</mat-chip-option>
+          <mat-chip-option color="warn">Prix</mat-chip-option>
+          <mat-chip-option color="accent">Date</mat-chip-option>
+          <mat-chip-option>Les plus aimés</mat-chip-option>
+        </mat-chip-listbox>
+      </span>
     </span>
     <div class="container py-2">
       <div class="row">

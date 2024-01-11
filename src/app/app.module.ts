@@ -17,8 +17,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+
 @NgModule({
-  declarations: [AppComponent, MainComponent, AnnonceComponent, OneComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    MainComponent,
+    AnnonceComponent,
+    OneComponent,
+    HeaderComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -33,6 +41,7 @@ import { HeaderComponent } from './header/header.component';
     MatIconModule,
     MatChipsModule,
     MatSelectModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
