@@ -1,25 +1,70 @@
 <div
   class="d-flex flex-row justify-content-evenly align-items-center"
-  style="height: 100vh"
+  style="height: 100vh; z-index: 9"
 >
-  <div class="card col-5 p-2 d-flex flex-column gap-2">
-    <input
-      type="text"
-      name=""
-      id=""
-      class="form-control"
-      placeholder="Utilisateur"
-    />
-    <input
-      type="password"
-      name=""
-      id=""
-      class="form-control"
-      placeholder="Mot de passe"
-    />
-    <button mat-flat-button style="background-color: var(--secondary)">
-      Connexion
-    </button>
-    <span>Pas de compte? <a router>Inscrivez-vous</a></span>
+  <div
+    class="card col-10 d-flex flex-row justify-content-evenly gap-2"
+    style="height: 80%"
+  >
+    <div
+      class="col-5 d-flex flex-column gap-2 justify-content-center position-absolute"
+      [style]="form"
+    >
+      <h4>{{ changeState ? "Inscription" : "Connexion" }}</h4>
+      <input
+        type="text"
+        name=""
+        id=""
+        class="form-control"
+        placeholder="Utilisateur"
+      />
+      <input
+        type="password"
+        name=""
+        id=""
+        class="form-control"
+        placeholder="Mot de passe"
+      />
+      <button
+        mat-flat-button
+        style="background-color: var(--secondary)"
+        class="col-12"
+      >
+        {{ changeState ? "Inscription" : "Connexion" }}
+      </button>
+      <span
+        >{{ changeState ? "Plus besoin d'en créer?" : "Pas de compte?" }}
+        <u
+          style="color: #ff512f"
+          (click)="this.changeState = !this.changeState; makeChangeState()"
+          >{{ changeState ? "Connectez-vous" : "Inscrivez-vous" }}</u
+        ></span
+      >
+    </div>
+    <!-- <div
+      class="col-3 d-flex flex-column gap-2 justify-content-start position-absolute info align-items-center"
+      [style]="info"
+    >
+      <span
+        style="height: 30%"
+        class="col-12 d-flex justify-content-evenly bg-white"
+      >
+        <img src="../../assets/img/idea.png" alt="" height="100%" />
+      </span>
+      <p style="text-align: center" *ngIf="!changeState">
+        Accéder à plus de fonctionnalité. <br />
+        Soyons libre. <br />
+        Connectez-vous
+      </p>
+      <p style="text-align: center" *ngIf="changeState">
+        Profiter de notre site au max. <br />
+        Gratuitement. <br />
+        Créer votre compte
+      </p>
+    </div> -->
+    <u class="position-absolute" style="bottom: 5%" (click)="goBackHome()"
+      ><i class="fa fa-arrow-left"></i>&nbsp;Retour</u
+    >
   </div>
 </div>
+<div [class]="divstyle"></div>

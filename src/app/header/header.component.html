@@ -15,13 +15,15 @@
       <span>CarSale</span>
     </span>
     <span class="d-flex gap-2">
-      <button
-        mat-flat-button
-        style="background-color: transparent; color: white"
-      >
-        Inscription
-      </button>
-      <a routerLink="/login">
+      <a routerLink="/login/true">
+        <button
+          mat-flat-button
+          style="background-color: transparent; color: white"
+        >
+          Inscription
+        </button>
+      </a>
+      <a routerLink="/login/false">
         <button mat-flat-button style="background-color: var(--secondary)">
           Connexion
         </button>
@@ -30,6 +32,5 @@
   </header>
   <span style="font-size: 40px; color: white" class="m-5">
     Acheter votre voiture de rêve. <br />
-    <span style="font-size: 15px; color: white"> Scroller 🫡 </span>
   </span>
 </div>

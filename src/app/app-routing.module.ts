@@ -6,11 +6,11 @@ import { MainComponent } from './main/main.component';
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: 'login/:isLogon',
     component: LoginComponent,
   },
   {
-    path: 'accueil',
+    path: '',
     component: MainComponent,
   },
 ];
