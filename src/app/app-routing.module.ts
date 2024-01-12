@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { AjoutAnnonceComponent } from './ajout-annonce/ajout-annonce.component';
 
 const routes: Routes = [
   {
@@ -12,6 +12,10 @@ const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+  },
+  {
+    path: 'ajout',
+    component: AjoutAnnonceComponent,
   },
 ];
 

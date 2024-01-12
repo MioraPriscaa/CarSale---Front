@@ -1,0 +1,49 @@
+.choice {
+  align-items: center;
+  height: 100%;
+  border: 3px solid var(--primary);
+  border-style: dashed;
+  border-radius: 12px;
+  display: flex;
+  overflow-y: scroll;
+  gap: 10px;
+  justify-content: space-evenly;
+  background-color: var(--bg-card);
+}
+
+.add {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100px;
+  border: 3px solid var(--primary);
+  border-style: dashed;
+  border-radius: 12px;
+}
+
+.choice::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+.choice {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+.fileItem {
+  width: 200px;
+  height: 15rem;
+}
+
+.error {
+  background-color: #f2583e;
+  width: 100%;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+.drag-over {
+  background-color: rgba(165, 165, 165, 0.795);
+}

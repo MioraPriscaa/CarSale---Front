@@ -1,0 +1,58 @@
+<div
+  class="d-flex align-items-center justify-content-evenly"
+  style="height: 100vh"
+>
+  <div class="card col-10 d-flex flex-row gap-2" style="height: 80%">
+    <div
+      for="file"
+      class="choice row p-3 col-6 position-relative"
+      (dragenter)="onDragEnter($event)"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+    >
+      <label
+        for="file"
+        class="fa fa-plus add col-2 text-center position-fixed"
+        style="font-size: 50px; z-index: 10"
+      ></label>
+      <div
+        class="fileItem card d-flex flex-column justify-content-between col-3 p-2"
+        *ngFor="let file of selectedFiles; let i = index"
+      >
+        <span class="d-flex flex-column">
+          <img
+            [src]="getThumbnailUrl(file)"
+            alt="{{ file.name }}"
+            width="100%"
+          />
+        </span>
+        <div class="footer d-flex flex-column gap-1">
+          <button mat-flat-button color="warn" (click)="deleteFile(i)">
+            Supprimer
+          </button>
+        </div>
+      </div>
+    </div>
+    <input
+      type="file"
+      name="data"
+      id="file"
+      class="invisible position-fixed"
+      formControlName="firstCtrl"
+      multiple
+      (change)="onFileSelected($event)"
+    />
+    <div class="col d-flex flex-column gap-2 p-2">
+      <h4>Ajout d'annonce:</h4>
+      <form>
+        <div class="inputGroup">
+          <label for="modele" class="form-label" style="z-index: 9"
+            >Modèle:</label
+          >
+          <select name="modele" id="" class="form-select"></select>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

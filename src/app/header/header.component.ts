@@ -9,7 +9,7 @@ export class HeaderComponent {
   divStyle =
     'top: 0; width: 100%; background: linear-gradient( to bottom, var(--primary-transparent),transparent);';
 
-  isConnected: boolean = false;
+  isConnected: boolean = true;
 
   animationFrameId: number | null = null;
   @HostListener('window:scroll', ['$event'])
