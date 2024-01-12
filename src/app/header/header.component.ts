@@ -9,6 +9,8 @@ export class HeaderComponent {
   divStyle =
     'top: 0; width: 100%; background: linear-gradient( to bottom, var(--primary-transparent),transparent);';
 
+  isConnected: boolean = false;
+
   animationFrameId: number | null = null;
   @HostListener('window:scroll', ['$event'])
   onScroll(event: Event): void {

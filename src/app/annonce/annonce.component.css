@@ -1,3 +1,18 @@
 .annonce {
   border: none;
 }
+
+.ajouter {
+  position: relative;
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white !important;
+  border-radius: 10px;
+  display: block;
+}

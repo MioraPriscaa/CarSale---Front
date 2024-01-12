@@ -4,7 +4,7 @@
   style="height: 100vh"
 >
   <header
-    class="d-flex flex-row justify-content-between p-3 px-4 position-fixed"
+    class="d-flex flex-row justify-content-between p-3 px-4 position-fixed align-items-center"
     [style]="divStyle"
   >
     <span
@@ -14,7 +14,7 @@
       <img src="../../assets/img/CAR_SALE_ico.png" alt="" height="30vh" />
       <span>CarSale</span>
     </span>
-    <span class="d-flex gap-2">
+    <span class="d-flex gap-2" *ngIf="!isConnected">
       <a routerLink="/login/true">
         <button
           mat-flat-button
@@ -28,6 +28,87 @@
           Connexion
         </button>
       </a>
+    </span>
+    <span
+      class="d-flex flex-row gap-2 justify-content-evenly"
+      *ngIf="isConnected"
+    >
+      <button
+        [matMenuTriggerFor]="notification"
+        style="background-color: transparent; border: none; color: white"
+      >
+        <i class="fa-solid fa-envelope"></i>
+      </button>
+      <mat-menu #notification="matMenu" style="overflow-x: hidden !important">
+        <button style="width: 300px" mat-menu-item>Notification</button>
+        <button style="width: 300px" mat-menu-item>Item 2</button>
+      </mat-menu>
+      <button
+        [matMenuTriggerFor]="message"
+        style="background-color: transparent; border: none; color: white"
+      >
+        <i class="fa-solid fa-message"></i>
+      </button>
+      <mat-menu #message="matMenu" style="max-width: 300px !important">
+        <header
+          class="p-2 px-3 d-flex flex-row justify-content-between align-items-center"
+        >
+          <span>Mes message</span>
+          <span
+            class="col-4 text-center"
+            style="
+              background-color: rgb(0, 94, 255);
+              border-radius: 12px;
+              padding: 2% 4%;
+              color: white;
+            "
+            >2 new</span
+          >
+        </header>
+        <button style="width: 300px" mat-menu-item>
+          <div
+            class="d-flex flex-row justify-content-between align-items-center"
+            style="width: 240px"
+          >
+            <div
+              class="d-flex flex-column justify-content-evenly align-items-start"
+            >
+              <span class="messageName"><b> Randy Rajaonson </b></span>
+              <span class="lastMessage"> Coucouuu </span>
+            </div>
+            <span style="color: rgb(0, 94, 255)">New</span>
+          </div>
+        </button>
+        <button
+          style="width: 300px"
+          mat-menu-item
+          class="d-flex flex-row justify-content-between align-items-center"
+        >
+          <div
+            class="d-flex flex-row justify-content-between align-items-center"
+            style="width: 240px"
+          >
+            <div
+              class="d-flex flex-column justify-content-evenly align-items-start"
+            >
+              <span class="messageName"><b> Dylan Rahelison </b></span>
+              <span class="lastMessage"> Ndao lesy e </span>
+            </div>
+            <span style="color: rgb(0, 94, 255)">New</span>
+          </div>
+        </button>
+      </mat-menu>
+      <button
+        [matMenuTriggerFor]="menu"
+        style="background-color: transparent; border: none; color: white"
+      >
+        <i class="fa-solid fa-caret-down"></i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <header mat-menu-item>Mon profil</header>
+        <button style="width: 300px" mat-menu-item>Item 1</button>
+        <button style="width: 300px" mat-menu-item>Item 2</button>
+      </mat-menu>
     </span>
   </header>
   <span style="font-size: 40px; color: white" class="m-5">

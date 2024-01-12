@@ -83,3 +83,7 @@ body {
 .mat-mdc-form-field-subscript-wrapper {
   display: none !important;
 }
+
+.mat-mdc-menu-panel {
+  overflow-x: hidden !important;
+}

@@ -18,6 +18,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatSelectModule } from '@angular/material/select';
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatChipsModule,
     MatSelectModule,
     AppRoutingModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
