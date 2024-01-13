@@ -6,7 +6,6 @@
   border-radius: 12px;
   display: flex;
   overflow-y: scroll;
-  gap: 10px;
   justify-content: space-evenly;
   background-color: var(--bg-card);
 }

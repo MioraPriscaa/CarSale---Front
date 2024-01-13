@@ -1,5 +1,5 @@
 <div class="card annonce p-2">
-  <div class="p-2 col-12 container">
+  <div class="p-2 col-12 container" *ngIf="isConnected">
     <a routerLink="/ajout">
       <button mat-raised-button class="col-12 ajouter">
         Ajouter votre annonce

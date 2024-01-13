@@ -8,6 +8,7 @@ import { Observable, map, startWith } from 'rxjs';
   styleUrls: ['./annonce.component.css'],
 })
 export class AnnonceComponent {
+  isConnected: boolean = true;
   myControl = new FormControl('');
   options: string[] = ['One', 'Two', 'Three'];
   filteredOptions: Observable<string[]> | undefined;

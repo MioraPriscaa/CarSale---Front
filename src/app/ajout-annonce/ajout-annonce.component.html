@@ -2,7 +2,10 @@
   class="d-flex align-items-center justify-content-evenly"
   style="height: 100vh"
 >
-  <div class="card col-10 d-flex flex-row gap-2" style="height: 80%">
+  <div
+    class="card col-10 d-flex flex-row gap-2 justify-content-evenly p-2"
+    style="height: 80%"
+  >
     <div
       for="file"
       class="choice row p-3 col-6 position-relative"
@@ -43,7 +46,7 @@
       multiple
       (change)="onFileSelected($event)"
     />
-    <div class="col d-flex flex-column gap-2 p-2">
+    <div class="col-5 d-flex flex-column gap-2 p-2">
       <h4>Ajout d'annonce:</h4>
       <form>
         <div class="inputGroup">
