@@ -13,10 +13,6 @@ const routes: Routes = [
     path: '',
     component: MainComponent,
   },
-  {
-    path: 'ajout',
-    component: AjoutAnnonceComponent,
-  },
 ];
 
 @NgModule({
