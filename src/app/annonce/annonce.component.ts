@@ -17,6 +17,7 @@ export class AnnonceComponent {
 
   marque: any[] = [];
   model: any[] = [];
+  categorie: any[] = [];
 
   allAnnonce: any[] = [];
   data: any = {};
@@ -49,7 +50,23 @@ export class AnnonceComponent {
     }
   }
 
-  filtre() {}
+  filtre() {
+    if (
+      this.marque.length > 0 ||
+      this.model.length > 0 ||
+      this.categorie.length > 0
+    ) {
+      this.allAnnonce = (this.data.allAnnonce as any[]).filter((annonce) => {
+        return (
+          this.marque.includes(annonce.voiture.model.marque.designation) ||
+          this.model.includes(annonce.voiture.model.designation) ||
+          this.categorie.includes(annonce.voiture.categorie.designation)
+        );
+      });
+    } else {
+      this.allAnnonce = this.data.allAnnonce;
+    }
+  }
 
   async allData() {
     try {
@@ -59,8 +76,12 @@ export class AnnonceComponent {
       this.allDatas.model = (await this.genericService.getAll(
         'models'
       )) as any[];
-      this.data.model = this.allDatas.model;
+      this.allDatas.categorie = (await this.genericService.getAll(
+        'categories'
+      )) as any[];
       this.data.marque = this.allDatas.marque;
+      this.data.categorie = this.allDatas.categorie;
+      this.data.model = this.allDatas.model;
     } catch (error) {
       this.error = {
         statut: true,
@@ -86,13 +107,12 @@ export class AnnonceComponent {
   }
 
   search() {
+    this.filtre();
     const lowerText = this.searchText.toLowerCase().trim();
     if (lowerText != '') {
       this.allAnnonce = this.allAnnonce.filter((item) =>
         item.voiture.model.designation.toLowerCase().includes(lowerText)
       );
-    } else {
-      this.allAnnonce = this.data.allAnnonce;
     }
   }
 }

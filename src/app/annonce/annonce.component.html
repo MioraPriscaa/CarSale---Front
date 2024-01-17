@@ -29,7 +29,7 @@
           <mat-select multiple [(ngModel)]="model">
             <mat-option
               *ngFor="let item of allDatas.model"
-              [value]="item.idModel"
+              [value]="item.designation"
               >{{ item.designation }}</mat-option
             >
           </mat-select>
@@ -38,10 +38,10 @@
       <div class="col-4">
         <mat-form-field class="col-12">
           <mat-label>Categorie</mat-label>
-          <mat-select multiple>
+          <mat-select multiple [(ngModel)]="categorie">
             <mat-option
-              *ngFor="let item of allDatas.model"
-              [value]="item.idModel"
+              *ngFor="let item of allDatas.categorie"
+              [value]="item.designation"
               >{{ item.designation }}</mat-option
             >
           </mat-select>

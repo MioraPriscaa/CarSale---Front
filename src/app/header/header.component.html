@@ -32,17 +32,7 @@
     <span
       class="d-flex flex-row gap-2 justify-content-evenly"
       *ngIf="isConnected"
-    >
-      <button
-        [matMenuTriggerFor]="notification"
-        style="background-color: transparent; border: none; color: white"
-      >
-        <i class="fa-solid fa-envelope"></i>
-      </button>
-      <mat-menu #notification="matMenu" style="overflow-x: hidden !important">
-        <button style="width: 300px" mat-menu-item>Notification</button>
-        <button style="width: 300px" mat-menu-item>Item 2</button>
-      </mat-menu>
+    > 
       <button
         [matMenuTriggerFor]="message"
         style="background-color: transparent; border: none; color: white"
