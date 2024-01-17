@@ -19,7 +19,11 @@
       40
     </span>
     <span style="font-size: 20px; color: var(--secondary)" class="mx-2">
-      <i class="fa-{{ iconEtat }} fa-heart" (click)="changeState()"></i>
+      <i
+        *ngIf="isConnected"
+        class="fa-{{ iconEtat }} fa-heart"
+        (click)="changeState()"
+      ></i>
     </span>
   </div>
   <div
@@ -37,7 +41,7 @@
   </div>
   <div
     class="detail position-relative p-2 px-3 col-12 d-flex flex-row align-items-start justify-content-between"
-    style="bottom: 0; height: 25%"
+    style="bottom: 0; height: 25%; overflow-y: auto"
   >
     <span style="z-index: 2" class="d-flex flex-column gap-2">
       <span
@@ -47,13 +51,25 @@
           border-radius: 12px;
         "
         class="px-4"
-        >$1,000</span
+        >{{ data.voiture.prix | number : ".0" }}Ar</span
       >
       <span
-        >Starex <br />
-        7 places</span
+        >{{ data.voiture.model.marque.designation }}
+        {{ data.voiture.model.designation }}<br />
+        {{ data.voiture.categorie.designation }}</span
       >
+      <span *ngIf="isShow" class="d-flex flex-column gap-1 align-items-start">
+        <b>Date de l'annonce:</b> {{ data.dateAnnonce | date : "fullDate" }}
+        <b>Caractéristique:</b>
+        <span *ngFor="let item of data.detailVoitures">
+          {{ item.designation }}: {{ item.valeur }}
+        </span>
+      </span>
     </span>
-    <i class="fa-solid fa-truck-pickup"></i>
+    <i
+      class="fa fa-message"
+      [style]="isShow ? 'color: white' : 'color:black'"
+      *ngIf="isConnected"
+    ></i>
   </div>
 </div>

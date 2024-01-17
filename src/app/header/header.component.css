@@ -1,7 +1,10 @@
-.head-component {
-  background-image: url("../../assets/img/bg.jpeg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 100%;
+@keyframes parallax {
+  to {
+    transform: translateY(200px);
+  }
+}
+
+.head-component .img {
+  animation: parallax linear;
+  animation-timeline: scroll();
 }

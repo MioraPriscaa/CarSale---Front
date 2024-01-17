@@ -30,3 +30,25 @@
   transform: translateY(100%);
   z-index: 1;
 }
+
+@keyframes like {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.2;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+.fa-solid {
+  animation: like;
+  animation-duration: 500ms;
+  animation-delay: 0;
+}
+
+.fa-message:hover {
+  scale: 1.2;
+}

@@ -45,7 +45,7 @@
   right: 60%;
   top: 0;
   transform: rotate(120deg);
-  border-radius: 40px;
+  border-radius: 40px;  
   z-index: -2;
   box-shadow: -50px -100px 0px 10px #ffb144ec;
 }

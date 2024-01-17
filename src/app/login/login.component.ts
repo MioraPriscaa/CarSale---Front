@@ -110,9 +110,6 @@ export class LoginComponent {
     this.dataToInsert = {
       mail: this.dataToInsert.mail ? this.dataToInsert.mail : '',
       motDePass: this.dataToInsert.motDePass ? this.dataToInsert.motDePass : '',
-      compte: {
-        idCompte: 1,
-      },
       nom: this.dataToInsert.nom ? this.dataToInsert.nom : '',
       prenom: this.dataToInsert.prenom ? this.dataToInsert.prenom : '',
       sexe: this.dataToInsert.sexe ? this.dataToInsert.sexe : '',

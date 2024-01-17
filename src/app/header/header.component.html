@@ -102,11 +102,36 @@
       </button>
       <mat-menu #menu="matMenu">
         <header mat-menu-item>Mon profil</header>
-        <button style="width: 300px" mat-menu-item (click)="logout()">Deconnexion</button>
+        <button style="width: 300px" mat-menu-item (click)="logout()">
+          Deconnexion
+        </button>
       </mat-menu>
     </span>
   </header>
+  <div
+    class="card p-3 position-fixed col-9"
+    *ngIf="this.error.statut"
+    style="
+      background-color: rgb(255, 21, 0) !important;
+      top: 1%;
+      left: 50%;
+      z-index: 100;
+      transform: translateX(-50%);
+    "
+  >
+    <span style="font-size: 15px; color: white"
+      ><i class="fa fas fa-exclamation-circle"></i>
+      {{ this.error.message }}</span
+    >
+  </div>
   <span style="font-size: 40px; color: white" class="m-5">
     Acheter votre voiture de rêve. <br />
   </span>
+  <img
+    src="../../assets/img/bg.jpeg"
+    style="z-index: -2; position: fixed"
+    alt=""
+    class="img"
+    width="100%"
+  />
 </div>

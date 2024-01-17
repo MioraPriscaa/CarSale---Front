@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ConnectionService } from '../Service/connection.service';
 
 @Component({
   selector: 'app-one',
@@ -6,12 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./one.component.css'],
 })
 export class OneComponent {
+  @Input() data: any = {};
+
   isFavorite: boolean = false;
   iconEtat: string = 'regular';
   isShow: boolean = false;
   class: string = 'card one';
   isShowDetail: boolean = false;
   showDetail: string = 'voirDetail VoirInactive';
+  isConnected: boolean = false;
+
+  constructor(private ConnectionService: ConnectionService) {
+    this.ConnectionService.data$.subscribe(
+      (value) => (this.isConnected = value.statut)
+    );
+  }
 
   ngOnInit() {}
 

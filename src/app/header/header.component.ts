@@ -36,18 +36,12 @@ export class HeaderComponent {
     this.animationFrameId = requestAnimationFrame(() => {
       const scrollPosition =
         window.scrollY || document.documentElement.scrollTop;
-      const parallaxFactor = 0.5;
       if (scrollPosition == 0) {
         this.divStyle =
           'top: 0; width: 100%; background: linear-gradient( to bottom, var(--primary-transparent),transparent);';
       } else {
         this.divStyle =
           'top: 0; width: 100%; background: var(--primary); z-index: 100';
-      }
-      const bodyElement = document.getElementById('head');
-      if (bodyElement) {
-        const newPosition = `center ${-scrollPosition * parallaxFactor}px`;
-        bodyElement.style.backgroundPosition = newPosition;
       }
     });
   }
