@@ -5,4 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css'],
 })
-export class MessageComponent {}
+export class MessageComponent {
+  index: string = 'z-index: 100';
+}

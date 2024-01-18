@@ -25,6 +25,8 @@ import localeFr from '@angular/common/locales/fr';
 import * as fr from '@angular/common/locales/fr';
 import { MessageComponent } from './message/message.component';
 import { CdkDrag, CdkDragHandle } from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -54,6 +56,7 @@ registerLocaleData(localeFr);
     MatMenuModule,
     CdkDrag,
     CdkDragHandle,
+    DragDropModule,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent],
