@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { ConnectionService } from '../Service/connection.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-one',
@@ -17,7 +18,10 @@ export class OneComponent {
   showDetail: string = 'voirDetail VoirInactive';
   isConnected: boolean = false;
 
-  constructor(private ConnectionService: ConnectionService) {
+  constructor(
+    private ConnectionService: ConnectionService,
+    private router: Router
+  ) {
     this.ConnectionService.data$.subscribe(
       (value) => (this.isConnected = value.statut)
     );
@@ -49,6 +53,12 @@ export class OneComponent {
       this.showDetail = 'voirDetail VoirInactive';
     } else {
       this.showDetail = 'voirDetail';
+    }
+  }
+
+  showMessage() {
+    if (!this.isConnected) {
+      this.router.navigateByUrl('/login/false');
     }
   }
 }

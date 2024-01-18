@@ -23,7 +23,8 @@ import { LOCALE_ID } from '@angular/core';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import * as fr from '@angular/common/locales/fr';
-
+import { MessageComponent } from './message/message.component';
+import { CdkDrag, CdkDragHandle } from '@angular/cdk/drag-drop';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -33,6 +34,7 @@ registerLocaleData(localeFr);
     AnnonceComponent,
     OneComponent,
     HeaderComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,8 @@ registerLocaleData(localeFr);
     MatSelectModule,
     AppRoutingModule,
     MatMenuModule,
+    CdkDrag,
+    CdkDragHandle,
   ],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
   bootstrap: [AppComponent],

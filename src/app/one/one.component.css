@@ -49,6 +49,7 @@
   animation-delay: 0;
 }
 
-.fa-message:hover {
+.fa-signal-messenger:hover {
   scale: 1.2;
+  cursor: pointer;
 }

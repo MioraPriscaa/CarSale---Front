@@ -67,9 +67,9 @@
       </span>
     </span>
     <i
-      class="fa fa-message"
+      class="fa-brands fa-signal-messenger"
       [style]="isShow ? 'color: white' : 'color:black'"
-      *ngIf="isConnected"
+      (click)="showMessage()"
     ></i>
   </div>
 </div>
