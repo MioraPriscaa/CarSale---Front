@@ -28,7 +28,8 @@ export class OneComponent {
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   changeState() {
     this.isFavorite = !this.isFavorite;

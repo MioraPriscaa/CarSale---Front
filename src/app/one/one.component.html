@@ -16,7 +16,7 @@
       class="py-1 px-3"
     >
       <i class="fa fa-heart"></i>
-      40
+      {{ data.favoriseur.length }}
     </span>
     <span style="font-size: 20px; color: var(--secondary)" class="mx-2">
       <i
@@ -67,7 +67,7 @@
       </button>
     </div>
     <img
-      src="../../assets/img/VOITURE.jpg"
+      [src]="this.data.photos[0]"
       alt="image"
       style="height: 100%; object-fit: cover"
     />
