@@ -4,7 +4,33 @@
   }
 }
 
+@keyframes parallax-min {
+  to {
+    transform: translateY(10px);
+  }
+}
+
 .head-component .img {
   animation: parallax linear;
   animation-timeline: scroll();
+}
+
+.img {
+  z-index: -2;
+  position: fixed;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 768px) {
+  .img {
+    object-fit: cover;
+    height: 100%;
+  }
+
+  .head-component .img {
+    animation: parallax-min linear;
+    animation-timeline: scroll();
+  }
 }
