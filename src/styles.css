@@ -40,6 +40,10 @@ body {
   right: 0;
 }
 
+input {
+  z-index: 10 !important;
+}
+
 .filtreinput * {
   background-color: filtreinput !important;
 }

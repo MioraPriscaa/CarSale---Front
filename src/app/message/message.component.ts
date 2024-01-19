@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-message',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./message.component.css'],
 })
 export class MessageComponent {
-  index: string = 'z-index: 100';
+  @Output() showMessage: EventEmitter<any> = new EventEmitter<any>();
+  @Output() closeMessage: EventEmitter<void> = new EventEmitter<void>();
 }

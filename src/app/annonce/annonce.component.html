@@ -78,7 +78,10 @@
           class="col-lg-3 col-12 p-2 position-relative"
           *ngFor="let item of allAnnonce"
         >
-          <app-one [data]="item"></app-one>
+          <app-one
+            [data]="item"
+            (showMessage)="MakeShowMessage($event)"
+          ></app-one>
         </div>
         <div
           class="d-flex flex-row justify-content-evenly text-center align-items-center"

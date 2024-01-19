@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, EventEmitter, HostListener, Output } from '@angular/core';
 import { ErrorService } from '../Service/error.service';
 import { ConnectionService } from '../Service/connection.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
+  @Output() showMessage: EventEmitter<any> = new EventEmitter<any>();
   divStyle =
     'top: 0; width: 100%; background: linear-gradient( to bottom, var(--primary-transparent),transparent);';
 

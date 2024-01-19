@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ConnectionService } from '../Service/connection.service';
 import { Router } from '@angular/router';
 
@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./one.component.css'],
 })
 export class OneComponent {
+  @Output() showMessage: EventEmitter<any> = new EventEmitter<any>();
   @Input() data: any = {};
 
   isFavorite: boolean = false;
@@ -56,9 +57,11 @@ export class OneComponent {
     }
   }
 
-  showMessage() {
+  showMessages(data: any) {
     if (!this.isConnected) {
       this.router.navigateByUrl('/login/false');
+    } else {
+      this.showMessage.emit(data);
     }
   }
 }

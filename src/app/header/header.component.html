@@ -55,7 +55,12 @@
             >2 new</span
           >
         </header>
-        <button style="width: 300px" class="p-2 px-3" mat-menu-item>
+        <button
+          style="width: 300px"
+          class="p-2 px-3"
+          (click)="showMessage.emit({ send: 'message' })"
+          mat-menu-item
+        >
           <div
             class="d-flex flex-row justify-content-between align-items-center"
             style="width: 240px"

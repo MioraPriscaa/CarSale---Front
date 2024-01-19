@@ -1,4 +1,7 @@
-<app-header></app-header>
-<app-annonce></app-annonce>
-<app-message></app-message>
-
+<app-header (showMessage)="showMessage($event)"></app-header>
+<app-annonce (showMessage)="showMessage($event)"></app-annonce>
+<app-message
+  *ngIf="isShowMessage"
+  (showMessage)="showMessage($event)"
+  (closeMessage)="closeMessage()"
+></app-message>

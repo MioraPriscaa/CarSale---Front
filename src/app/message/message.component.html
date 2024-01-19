@@ -1,49 +1,45 @@
 <div
-  class="boundary position-fixed"
-  style="width: 100vw; height: 100vh; top: 0; left: 0"
-  [style]="index"
+  class="card message position-fixed col-lg-3 col-9"
+  style="bottom: 2%; right: 2%; z-index: 100"
+  cdkDragBoundary="app-root"
+  cdkDrag
 >
-  <div
-    class="card message position-fixed col-lg-3 col-9"
-    style="bottom: 2%; right: 2%"
-    cdkDragBoundary=".boundary"
-    cdkDrag
-    (mouseleave)="index = 'z-index: 1'"
-    (mouseover)="index = 'z-index: 100'"
+  <header
+    class="p-3 d-flex flex-row justify-content-between align-items-center"
   >
-    <header
-      class="p-3 d-flex flex-row justify-content-between align-items-center"
+    <svg
+      width="24px"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+      cdkDragHandle
+      style="cursor: move"
     >
-      <svg
-        width="24px"
-        fill="currentColor"
-        viewBox="0 0 24 24"
-        cdkDragHandle
-        style="cursor: move"
-      >
-        <path
-          d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
-        ></path>
-        <path d="M0 0h24v24H0z" fill="none"></path>
-      </svg>
-      <span>Randy Rajaonson</span>
-      <i class="fa fa-xmark"></i>
-    </header>
-    <section style="height: 300px" class="message-zone"></section>
-    <form
-      class="p-2 d-flex flex-row justify-content-evenly align-items-center"
-      style="color: black"
-    >
-      <span class="col-9">
-        <input
-          type="text"
-          name=""
-          id=""
-          placeholder="Message"
-          class="form-control"
-        />
-      </span>
-      <i class="fa fa-paper-plane" style="cursor: pointer"></i>
-    </form>
-  </div>
+      <path
+        d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"
+      ></path>
+      <path d="M0 0h24v24H0z" fill="none"></path>
+    </svg>
+    <span>Randy Rajaonson</span>
+    <i
+      class="fa fa-xmark"
+      style="cursor: pointer"
+      (click)="closeMessage.emit()"
+    ></i>
+  </header>
+  <section style="height: 300px" class="message-zone"></section>
+  <form
+    class="p-2 d-flex flex-row justify-content-evenly align-items-center"
+    style="color: black"
+  >
+    <span class="col-9">
+      <input
+        type="text"
+        name=""
+        id=""
+        placeholder="Message"
+        class="form-control"
+      />
+    </span>
+    <i class="fa fa-paper-plane" style="cursor: pointer"></i>
+  </form>
 </div>

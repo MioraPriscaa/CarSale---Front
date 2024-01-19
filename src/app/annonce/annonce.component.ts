@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 import { GenericService } from '../Service/generic.service';
@@ -10,6 +10,7 @@ import { ErrorService } from '../Service/error.service';
   styleUrls: ['./annonce.component.css'],
 })
 export class AnnonceComponent {
+  @Output() showMessage: EventEmitter<any> = new EventEmitter<any>();
   isConnected: boolean = true;
   myControl = new FormControl('');
   error: any = {};
@@ -114,5 +115,9 @@ export class AnnonceComponent {
         item.voiture.model.designation.toLowerCase().includes(lowerText)
       );
     }
+  }
+
+  MakeShowMessage(data: any) {
+    this.showMessage.emit(data);
   }
 }
