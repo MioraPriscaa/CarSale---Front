@@ -94,7 +94,7 @@ export class AnnonceComponent {
 
   async getAllAnnonce() {
     try {
-      this.allAnnonce = await this.genericService.getAll('annonces');
+      this.allAnnonce = await this.genericService.getAll('annonces/valide');
       this.data.allAnnonce = this.allAnnonce;
     } catch (error) {
       this.error = {
