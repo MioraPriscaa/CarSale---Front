@@ -19,7 +19,7 @@
       ></path>
       <path d="M0 0h24v24H0z" fill="none"></path>
     </svg>
-    <span>Randy Rajaonson</span>
+    <span>{{ data.nom + " " + data.prenom }}</span>
     <i
       class="fa fa-xmark"
       style="cursor: pointer"
@@ -27,9 +27,9 @@
     ></i>
   </header>
   <section style="height: 300px" class="message-zone d-flex flex-column gap-2">
-    <span class="col-12" *ngFor="let message of data">
-      <span [style]="message.idSend == me ? styleMe : styleOther">
-        {{ message.message }}
+    <span class="col-12" *ngFor="let message of messages">
+      <span [style]="message.sender.idPersonne == me ? styleMe : styleOther">
+        {{ message.content }}
       </span>
     </span>
   </section>
@@ -44,8 +44,9 @@
         id=""
         placeholder="Message"
         class="form-control"
+        (change)="changeNewMessage($event)"
       />
     </span>
-    <i class="fa fa-paper-plane" style="cursor: pointer"></i>
+    <i class="fa fa-paper-plane" style="cursor: pointer" (click)="sendMessage()"></i>
   </form>
 </div>

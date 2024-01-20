@@ -35,7 +35,6 @@ export class HeaderComponent {
   }
   
   async ngOnInit() {
-    await this.getAllContact();
   }
   
   async getAllContact(){
@@ -44,6 +43,7 @@ export class HeaderComponent {
       const response = await this.genericService.getAll('messages/contacts?idUser=' + idUser);
       this.data = response.contacts;
       this.newMessage = 0;
+      this.contacts = [];
       this.data.map((element)=>{
         var personne:any = {};
         var lastMessage = {};
@@ -90,6 +90,20 @@ export class HeaderComponent {
       }
     });
   }
+  
+  async refresh(){
+    await this.getAllContact();
+  }
+  
+  showMessages(data: any) {
+    if (!this.isConnected) {
+      this.router.navigateByUrl('/login/false');
+    } else {
+      this.showMessage.emit(data);
+    }
+  }
+  
+  
   logout() {
     localStorage.removeItem('CarSalTokken');
     localStorage.removeItem('CarsalidPersonne');

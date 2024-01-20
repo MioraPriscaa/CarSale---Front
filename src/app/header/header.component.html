@@ -36,6 +36,7 @@
       <button
         [matMenuTriggerFor]="message"
         style="background-color: transparent; border: none; color: white"
+        (click)="refresh()"
       >
         <i class="fa-solid fa-message"></i>
       </button>
@@ -58,7 +59,7 @@
         <button
           style="width: 300px"
           class="p-2 px-3"
-          (click)="showMessage.emit({ send: 'message' })"
+          (click)="showMessages(contact.personne)"
           mat-menu-item
           *ngFor="let contact of contacts"
         >

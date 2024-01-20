@@ -25,6 +25,19 @@ export class GenericService {
       throw error;
     }
   }
+  
+  async insertWithTokken(path: string, data: any, headers: any) {
+    try {
+      const response = await axios.post(`${url}/${path}`, data, {
+        headers,
+      });
+      return response.data;
+    } catch (error) {
+      throw error;
+    }
+  }
+
+
 
   async modifier(path: string, data: any) {
     try {

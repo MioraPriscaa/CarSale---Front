@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
   isShowMessage: boolean = false;
-  message: any = [];
+  message: any[] = [];
 
   showMessage(data: any) {
     this.isShowMessage = true;
-    console.log(data);
+    this.message = data;
   }
 
   closeMessage() {
