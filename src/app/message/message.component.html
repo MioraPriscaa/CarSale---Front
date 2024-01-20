@@ -26,9 +26,17 @@
       (click)="closeMessage.emit()"
     ></i>
   </header>
-  <section style="height: 300px" class="message-zone d-flex flex-column gap-2">
+  <section
+    #message
+    style="height: 300px"
+    class="message-zone d-flex flex-column gap-2 p-2"
+    id="message-zone"
+  >
     <span class="col-12" *ngFor="let message of messages">
-      <span [style]="message.sender.idPersonne == me ? styleMe : styleOther">
+      <span
+        [style]="message.sender.idPersonne == me ? styleMe : styleOther"
+        class="p-2"
+      >
         {{ message.content }}
       </span>
     </span>
@@ -36,17 +44,24 @@
   <form
     class="p-2 d-flex flex-row justify-content-evenly align-items-center"
     style="color: black"
+    (submit)="sendMessage()"
   >
     <span class="col-9">
       <input
         type="text"
-        name=""
-        id=""
+        name="message"
+        id="message"
         placeholder="Message"
         class="form-control"
-        (change)="changeNewMessage($event)"
+        [(ngModel)]="newMessage"
       />
     </span>
-    <i class="fa fa-paper-plane" style="cursor: pointer" (click)="sendMessage()"></i>
+    <button
+      mat-icon-button
+      class="d-flex flex-row align-items-center"
+      type="submit"
+    >
+      <i class="fa fa-paper-plane" style="cursor: pointer; font-size: 20px"></i>
+    </button>
   </form>
 </div>

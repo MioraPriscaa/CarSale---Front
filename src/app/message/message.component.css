@@ -12,7 +12,8 @@
 }
 
 .message .message-zone {
-  overflow-y: scroll;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .message input {
