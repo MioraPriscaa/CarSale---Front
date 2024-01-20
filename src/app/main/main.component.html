@@ -4,4 +4,5 @@
   *ngIf="isShowMessage"
   (showMessage)="showMessage($event)"
   (closeMessage)="closeMessage()"
+  [data]="message"
 ></app-message>

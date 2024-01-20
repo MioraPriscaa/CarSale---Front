@@ -39,9 +39,7 @@ export class OneComponent {
     );
   }
 
-  ngOnInit() {
-    console.log(this.data.photos);
-  }
+  ngOnInit() {}
 
   changeState() {
     this.isFavorite = !this.isFavorite;

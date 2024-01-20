@@ -26,7 +26,13 @@
       (click)="closeMessage.emit()"
     ></i>
   </header>
-  <section style="height: 300px" class="message-zone"></section>
+  <section style="height: 300px" class="message-zone d-flex flex-column gap-2">
+    <span class="col-12" *ngFor="let message of data">
+      <span [style]="message.idSend == me ? styleMe : styleOther">
+        {{ message.message }}
+      </span>
+    </span>
+  </section>
   <form
     class="p-2 d-flex flex-row justify-content-evenly align-items-center"
     style="color: black"

@@ -91,7 +91,11 @@
     <i
       class="fa-brands fa-signal-messenger"
       [style]="isShow ? 'color: white' : 'color:black'"
-      (click)="showMessages(data)"
+      (click)="
+        showMessages({
+          idReceive: data.annonceur.idPersonne
+        })
+      "
     ></i>
   </div>
 </div>
