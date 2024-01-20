@@ -10,8 +10,11 @@ export class MainComponent {
   message: any[] = [];
 
   showMessage(data: any) {
-    this.isShowMessage = true;
-    this.message = data;
+    this.isShowMessage = false;
+    setTimeout(() => {
+      this.isShowMessage = true;
+      this.message = data;
+    }, 200);
   }
 
   closeMessage() {
