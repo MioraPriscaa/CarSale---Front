@@ -24,6 +24,8 @@ export class MessageComponent implements AfterViewInit {
   messages: any[] = [];
   error: any = {};
   newMessage: String = '';
+  currentMessage: any[] = [];
+  isCharge: boolean = false;
 
   styleMe: string =
     'max-width: 80%; border-radius: 12px; border-top-right-radius: 0px; background-color: var(--secondary); float: right;';
@@ -31,22 +33,59 @@ export class MessageComponent implements AfterViewInit {
     'max-width: 80%; border-radius: 12px; border-top-left-radius: 0px; background-color: var(--secondary-transparent); float: left;';
 
   @Input() data: any = {};
+  limit: number = 0;
+  count: number = 0;
 
   async ngOnInit() {
     const me = localStorage.getItem('CarsalidPersonne');
     if (me != null) {
       this.me = Number.parseInt(me);
       await this.getAllMessages(this.data.idPersonne);
+      this.limit = this.messages.length;
+      this.count = 15;
+      if (this.limit - this.count >= 0) {
+        this.currentMessage = this.messages.slice(
+          this.limit - this.count,
+          this.limit
+        );
+      } else {
+        this.currentMessage = this.messages.slice(0, this.limit);
+      }
       setInterval(async () => {
         await this.getAllMessages(this.data.idPersonne);
+        this.limit = this.messages.length;
+        if (this.limit - this.count >= 0) {
+          this.currentMessage = this.messages.slice(
+            this.limit - this.count,
+            this.limit
+          );
+        } else {
+          this.currentMessage = this.messages.slice(0, this.limit);
+        }
       }, 700);
     }
+  }
+
+  showReste() {
+    this.isCharge = true;
+    setTimeout(() => {
+      this.count += 15;
+      if (this.limit - this.count >= 0) {
+        this.currentMessage = this.messages.slice(
+          this.limit - this.count,
+          this.limit
+        );
+      } else {
+        this.currentMessage = this.messages.slice(0, this.limit);
+      }
+      this.isCharge = false;
+    }, 2000);
   }
 
   ngAfterViewInit() {
     setTimeout(() => {
       this.showScroll();
-    }, 500);
+    }, 700);
   }
 
   showScroll() {
@@ -97,6 +136,7 @@ export class MessageComponent implements AfterViewInit {
       };
       const response = await this.genericService.insert('messages', message);
       this.messages.push(message);
+      this.currentMessage.push(message);
       this.newMessage = '';
       setTimeout(() => {
         this.showScroll();

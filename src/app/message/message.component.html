@@ -29,10 +29,25 @@
   <section
     #message
     style="height: 300px"
-    class="message-zone d-flex flex-column gap-2 p-2"
+    class="message-zone d-flex flex-column gap-2 p-2 align-items-center"
     id="message-zone"
   >
-    <span class="col-12" *ngFor="let message of messages">
+    <div
+      class="spinner-border col-1"
+      role="status"
+      *ngIf="isCharge && messages.length - currentMessage.length > 1"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <button
+      class="btn p-1"
+      style="border-radius: 12px; border: 1px solid gray; color: gray"
+      (click)="showReste()"
+      *ngIf="messages.length - currentMessage.length > 1"
+    >
+      Afficher plus
+    </button>
+    <span class="col-12" *ngFor="let message of currentMessage">
       <span
         [style]="message.sender.idPersonne == me ? styleMe : styleOther"
         class="p-2"
@@ -54,6 +69,7 @@
         placeholder="Message"
         class="form-control"
         [(ngModel)]="newMessage"
+        autocomplete="off"
       />
     </span>
     <button
