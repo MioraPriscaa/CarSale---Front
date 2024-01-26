@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
 import { GenericService } from '../Service/generic.service';
 import { ErrorService } from '../Service/error.service';
+import { ConnectionService } from '../Service/connection.service';
 
 @Component({
   selector: 'app-annonce',
@@ -11,7 +12,7 @@ import { ErrorService } from '../Service/error.service';
 })
 export class AnnonceComponent {
   @Output() showMessage: EventEmitter<any> = new EventEmitter<any>();
-  isConnected: boolean = true;
+  isConnected: boolean = false;
   myControl = new FormControl('');
   error: any = {};
   searchText: string = '';
@@ -19,16 +20,21 @@ export class AnnonceComponent {
   marque: any[] = [];
   model: any[] = [];
   categorie: any[] = [];
+  showFavoris: boolean = false;
 
   allAnnonce: any[] = [];
   data: any = {};
   allDatas: any = {};
 
   constructor(
+    private ConnectionService: ConnectionService,
     private genericService: GenericService,
     private ErrorService: ErrorService
   ) {
     this.ErrorService.data$.subscribe((value) => (this.error = value));
+    this.ConnectionService.data$.subscribe(
+      (value) => (this.isConnected = value.statut)
+    );
   }
 
   async ngOnInit() {

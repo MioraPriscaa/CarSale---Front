@@ -62,13 +62,9 @@
       class="px-2 py-4 d-flex align-items-center gap-2 justify-content-between"
     >
       <b style="font-size: 20px">Les offres disponibles:</b>
-      <span class="d-flex align-items-center gap-2">
-        <span>Trier par:</span>
+      <span class="d-flex align-items-center gap-2" *ngIf="isConnected">
         <mat-chip-listbox aria-label="Fish selection">
-          <mat-chip-option selected>Nom</mat-chip-option>
-          <mat-chip-option color="warn">Prix</mat-chip-option>
-          <mat-chip-option color="accent">Date</mat-chip-option>
-          <mat-chip-option>Les plus aimés</mat-chip-option>
+          <mat-chip-option color="warn">Mes favoris</mat-chip-option>
         </mat-chip-listbox>
       </span>
     </span>
