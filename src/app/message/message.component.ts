@@ -134,7 +134,9 @@ export class MessageComponent implements AfterViewInit {
         },
         content: this.newMessage,
       };
-      const response = await this.genericService.insert('messages', message);
+      var tokken = localStorage.getItem('CarSalTokken');
+      var headers = { tokken: tokken };
+      const response = await this.genericService.insertWithTokken('messages',message,headers);
       this.messages.push(message);
       this.currentMessage.push(message);
       this.newMessage = '';

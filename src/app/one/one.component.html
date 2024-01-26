@@ -16,14 +16,14 @@
       class="py-1 px-3"
     >
       <i class="fa fa-heart"></i>
-      {{ data.favoriseur.length }}
+      {{ favoriseurs }}
     </span>
     <span style="font-size: 20px; color: var(--secondary)" class="mx-2">
       <i
         style="cursor: pointer"
         *ngIf="isConnected"
         class="fa-{{ iconEtat }} fa-heart"
-        (click)="changeState()"
+        (click)="changeState(data)"
       ></i>
     </span>
   </div>
