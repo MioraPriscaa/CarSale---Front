@@ -48,8 +48,10 @@ export class OneComponent {
     if (me != null) {
       this.me = Number.parseInt(me);
       this.data.favoriseur.map((user:number)=>{
-        if(this.me == user) this.iconEtat = 'solid';
-        this.isFavorite = true;
+        if(this.me == user) {
+          this.iconEtat = 'solid';
+          this.isFavorite = true;
+        }
       });
       this.favoriseurs = this.data.favoriseur.length;
     }
