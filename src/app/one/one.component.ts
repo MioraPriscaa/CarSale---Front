@@ -12,6 +12,7 @@ import {
   NgbSlideEvent,
   NgbSlideEventSource,
 } from '@ng-bootstrap/ng-bootstrap';
+import { GenericService } from '../Service/generic.service';
 
 @Component({
   selector: 'app-one',
@@ -29,24 +30,44 @@ export class OneComponent {
   isShowDetail: boolean = false;
   showDetail: string = 'voirDetail VoirInactive';
   isConnected: boolean = false;
+  me: number = 0;
+  favoriseurs :number = 0;
 
   constructor(
     private ConnectionService: ConnectionService,
-    private router: Router
+    private router: Router,
+    private genericService: GenericService
   ) {
     this.ConnectionService.data$.subscribe(
       (value) => (this.isConnected = value.statut)
     );
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    const me = localStorage.getItem('CarsalidPersonne');
+    if (me != null) {
+      this.me = Number.parseInt(me);
+      this.data.favoriseur.map((user:number)=>{
+        if(this.me == user) {
+          this.iconEtat = 'solid';
+          this.isFavorite = true;
+        }
+      });
+      this.favoriseurs = this.data.favoriseur.length;
+    }
+  }
 
-  changeState() {
+  async changeState(annonce:any) {
+    const idUser = localStorage.getItem("CarsalidPersonne");
     this.isFavorite = !this.isFavorite;
     if (this.isFavorite) {
+      this.genericService.modifier('annonces/favoriser?idAnnonce='+ annonce.id +'&idUser=' + idUser,null);
       this.iconEtat = 'solid';
+      this.favoriseurs = this.favoriseurs + 1 ;
     } else {
+      this.genericService.modifier('annonces/defavoriser?idAnnonce='+ annonce.id +'&idUser=' + idUser,null);
       this.iconEtat = 'regular';
+      this.favoriseurs = this.favoriseurs - 1 ;
     }
   }
 
