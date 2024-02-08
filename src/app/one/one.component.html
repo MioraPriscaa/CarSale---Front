@@ -40,11 +40,14 @@
       style="height: 100%; width: 100%"
     >
       <ng-template *ngFor="let img of data.photos; let i = index" ngbSlide>
-        <div class="picsum-img-wrapper">
+        <div
+          class="picsum-img-wrapper"
+          style="margin-top: 50%; transform: translateY(-50%)"
+        >
           <img
             [src]="img"
             alt="{{ img }}"
-            style="height: 100%; object-fit: cover; width: 100%"
+            style="height: auto; width: 100%; margin: 0 auto"
           />
         </div>
       </ng-template>

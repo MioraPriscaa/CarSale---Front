@@ -25,6 +25,7 @@ export class AnnonceComponent {
   allAnnonce: any[] = [];
   data: any = {};
   allDatas: any = {};
+  me: number | undefined;
 
   constructor(
     private ConnectionService: ConnectionService,
@@ -40,6 +41,11 @@ export class AnnonceComponent {
   async ngOnInit() {
     await this.getAllAnnonce();
     await this.allData();
+
+    const me = localStorage.getItem('CarsalidPersonne');
+    if (me != null) {
+      this.me = parseInt(me);
+    }
   }
 
   changeModel() {
@@ -120,6 +126,17 @@ export class AnnonceComponent {
       this.allAnnonce = this.allAnnonce.filter((item) =>
         item.voiture.model.designation.toLowerCase().includes(lowerText)
       );
+    }
+  }
+
+  async MakeShowFavoris() {
+    this.showFavoris = !this.showFavoris;
+    if (this.showFavoris) {
+      this.allAnnonce = await this.genericService.getAll(
+        'annonces/favoris?idUser=' + this.me
+      );
+    } else {
+      this.search();
     }
   }
 
