@@ -9,4 +9,4 @@ export class AppComponent {
   title = 'Carsale---front';
 }
 
-export const url = 'http://localhost:8080';
+export const url = 'https://carsale-back-production.up.railway.app';
